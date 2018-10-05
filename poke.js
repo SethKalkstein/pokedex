@@ -35,6 +35,29 @@ window.addEventListener("load",function(){ //executes on window loading
 		})
 	}
 })
+
+class Trainer{ 
+	constructor(pokes) {//called upon loading the window. 
+		this.pokes = pokes; //the array of pokemons created in the window load event listener
+		this.currentPoke = this.pokes[0];
+	}
+	all(){
+		return this.pokes;
+	}
+	name(nameMatch){
+		for(let i=0;i<this.pokes.length;i++){
+			if(this.pokes[i].name==nameMatch){
+				return this.pokes[i];
+			}
+		}
+		console.log("specified pokemon does not belong to this trainer.")
+	}
+	changePoke(){
+		
+	}
+}
+
+
 console.log(listOfPokemons);
 
 // window.addEventListener("load",function(){
