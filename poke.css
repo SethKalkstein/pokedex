@@ -10,11 +10,16 @@
   src: url("./PocketMonk.otf") format("opentype"); /* IE no comprende format()! */
 }
 
-
-
 *{
 	background-color: lightgrey;
 }
+
+body {
+	display: grid;
+	grid-template-columns: 10% 60% 10% 20%;
+	grid-template-areas: "logo logo heading heading"
+}
+
 #logo {
 	width: 70%;
 }
