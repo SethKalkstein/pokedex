@@ -1,6 +1,6 @@
 
-const monNumbers = [52,79,25,23,58,12]; //numbers of the pokemons I'll be using
-const pokePic = document.getElementById("pokePic"); //picture of Pokemon
+const monNumbers = [52,79,25,23,58,12,55,3,5,9,37,59,81,87,98,97,96,95,94,101,102,103,109,155]; //numbers of the pokemons I'll be using
+var pokePic = document.getElementById("pokePic"); //picture of Pokemon
 const pokeName = document.getElementById("pokeName"); //name of Pokemom
 const back = document.getElementById("back");
 const next = document.getElementById("next");
@@ -15,10 +15,10 @@ class Pokemon{
 		this.attack = apiPoke.stats[4].base_stat;  
 		this.defense = apiPoke.stats[3].base_stat;
 		this.rawAbilities= apiPoke.abilities; //stores abilities taken directly from API, has a bunch of unneeded data
-		this.abilities = this.createAbilites(this.rawAbilities); //abilities in clean form
+		this.abilities = this.cleanAbilites(this.rawAbilities); //abilities in clean form
 	}
 	
-	createAbilites(){
+	cleanAbilites(){
 		var cleanedArray = []; //will hold the ability variable without all the extra junk data
 		for(let i=0;i<this.rawAbilities.length;i++){ //loops through the abilities, they can have 2 or 3
 			cleanedArray.push(this.rawAbilities[i].ability.name); //populates array with only the name of the ability
@@ -46,8 +46,21 @@ class Trainer{
 	loadPoke(){
 		console.log(this.pokes[this.current].abilities);
 		pokeName.innerHTML = this.pokes[this.current].name;
-		pokePic.style.backgroundImage="url("+this.pokes[this.current].img+")";
+		pokePic.src=this.pokes[this.current].img;
+		pokePic.alt="Image of "+this.pokes.name;
+		console.log(this.pokes[this.current].img);
+		$("#hp").html(this.pokes[this.current].hp);
+		$("#attack").html(this.pokes[this.current].attack);
+		$("#defense").html(this.pokes[this.current].defense);
+		this.createAbilities();
 	}
+	createAbilities(){
+		$(#abilities).html("");
+		for(let i=0;i<this.pokes.abilities.length.i++){
+			
+		}
+	}
+
 	nextPoke(){
 		if(this.current==this.pokes.length-1){ //checks to see if its at the last pokemon in the array
 			this.current=0; //if it is, it cycles back to zero
@@ -68,7 +81,6 @@ class Trainer{
 	}
 }
 
-
 for(let i = 0;i<monNumbers.length;i++){ //loops through all pokemon numbers in the array
 	$.ajax({url:"https://fizal.me/pokeapi/api/"+monNumbers[i]+".json", //calls the API
 		success: function(response){ //callback for API object data
@@ -78,15 +90,18 @@ for(let i = 0;i<monNumbers.length;i++){ //loops through all pokemon numbers in t
 	})
 }
 
-while(listOfPokemons==null|| listOfPokemons==undefined||listOfPokemons==[]){
-	console.log("waiting");
-}
-
 var nurseSeths = new Trainer(listOfPokemons);
-window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
-nurseSeths = new Trainer(listOfPokemons);
-nurseSeths.loadPoke();
-},150);
+
+if (nurseSeths[0]==undefined){
+	console.log("API still loading");
+	window.setTimeout(function(){ //had to set a timeout as a safegaurd because the load function was executing before the listOfPoke array could be populated (maybe with a slower processor and faster internet connection that wouldn't be the case?) 
+		nurseSeths = new Trainer(listOfPokemons);
+		nurseSeths.loadPoke();
+	}, 150+20*monNumbers.length);
+}
+else{
+	nurseSeths.loadPoke();
+}
 
 next.addEventListener("click",function(){  //calls Trainer object's method to find the next pokemon
 nurseSeths.nextPoke();
@@ -96,35 +111,3 @@ nurseSeths.nextPoke();
 back.addEventListener("click",function(){  //calls Trainer object's method to find the previous pokemon
 nurseSeths.prevPoke();
 });
-
-//executes on window loading
-// 	nurseSeths.loadPoke();
-// })
-
-// pokePic.addEventListener("click",function(){ //executes on window loading
-// 	nurseSeths.loadPoke();
-// })
-
-
-console.log(listOfPokemons);
-
-// window.addEventListener("load",function(){
-// 	$.ajax({url:"https://fizal.me/pokeapi/api/25.json",
-// 		success: function(response){
-// 			testFunction(response);
-// 			var testObj = new Pokemon(response);
-// 			console.log("I'm the Test");
-// 			console.log(testObj);
-// 		}
-// 	})
-// })
-
-// function testFunction(x){
-// 	console.log(x);
-// 	pokeName.innerHTML=x.name;
-// 		// backgroundSize: 100% 100%;
-// 	pokePic.style.backgroundImage="url("+x.sprites.front_default+")"
-// 	console.log(x.abilities);
-// 	console.log(x.abilities.length-1);
-// 	console.log(x.abilities[1].ability.name);
-// }

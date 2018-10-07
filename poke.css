@@ -1,8 +1,58 @@
 
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url("./PokemonSolid.ttf") format("truetype"); /* IE no comprende format()! */
+}
+
+
+@font-face {
+  font-family: "Pocket Monk";
+  src: url("./PocketMonk.otf") format("opentype"); /* IE no comprende format()! */
+}
+
+
+
+*{
+	background-color: lightgrey;
+}
+#logo {
+	width: 70%;
+}
+header h1 {
+	font-family: "Pokemon Solid";
+	color: yellow;
+	text-shadow: 5px 5px blue;
+	text-transform: capitalize;
+	font-size: 2em;
+}
+
+h2{
+	font-family: "Pocket Monk";
+	color: yellow;
+	text-shadow: 4px 4px blue;
+	text-transform: capitalize;
+	font-size: 2em;
+}
+
 #pokePic{
 	height: 200px;
 	width: 200px;
 	background-size: 100% 100%;
-	border: 1px solid black;
+/*	border: 5px solid red;*/
 	border-radius: 50%;
+	background-image: url("Pokeball2.PNG");
+}
+
+#back{
+	background-image: url("leftArrow.png");
+	background-size: 100% 100%;
+	height: 200px;
+	width: 75px;
+}
+
+#next{
+	background-image: url("rightArrow.png");
+	background-size: 100% 100%;
+	height: 200px;
+	width: 75px;
 }
