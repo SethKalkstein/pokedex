@@ -55,10 +55,10 @@ class Trainer{
 		this.createAbilities();
 	}
 	createAbilities(){
-		// $(#abilities).html("");
-		// for(let i=0;i<this.pokes.abilities.length.i++){
-			
-		// }
+		$("#abilities").html("");
+		for (let i=0;i<this.pokes[this.current].abilities.length;i++){
+			$("#abilities").append("<li>"+this.pokes[this.current].abilities[i]+"</li>");
+		}
 	}
 
 	nextPoke(){
