@@ -10,49 +10,93 @@
   src: url("./PocketMonk.otf") format("opentype"); /* IE no comprende format()! */
 }
 
-
-
 *{
 	background-color: lightgrey;
 }
-#logo {
-	width: 70%;
+
+#body-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr 2fr;
+	grid-line: 1px;
+/*	grid-template-areas: 
+		"logo logo heading heading"
+		" blank name blank stats"
+		"larrow  pic    rarrow  stats"
+		"footer  footer footer  footer";*/
 }
-header h1 {
+
+#logo {
+	grid-column: 1 / 3;
+	grid-row: 1 / 2;
+	/*grid-area: "logo";*/
+	width: 70%;
+	justify-self: center; 
+}
+#trainer {
 	font-family: "Pokemon Solid";
 	color: yellow;
 	text-shadow: 5px 5px blue;
 	text-transform: capitalize;
 	font-size: 2em;
+	/*grid-area: "heading";*/
+	grid-column: 3 / 5;
+	grid-row: 1 / 2;
+	align-self: self-end;
 }
 
-h2{
+#pokeName{
 	font-family: "Pocket Monk";
 	color: yellow;
 	text-shadow: 4px 4px blue;
 	text-transform: capitalize;
-	font-size: 2em;
+	font-size: 3em;
+	/*grid-area: "name";*/
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	justify-self: center;
 }
 
 #pokePic{
-	height: 200px;
-	width: 200px;
+/*	height: 200px;
+	width: 200px;*/
 	background-size: 100% 100%;
+	/*height: 100%;*/
+	width: 75%;
+	justify-self: center;
 /*	border: 5px solid red;*/
 	border-radius: 50%;
 	background-image: url("Pokeball2.PNG");
+	/*grid-area: "pic";*/
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
 }
 
 #back{
 	background-image: url("leftArrow.png");
 	background-size: 100% 100%;
-	height: 200px;
-	width: 75px;
+	/*grid-area: "larrow";*/
+/*	height: 200px;
+	width: 75px; */
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
 }
 
 #next{
 	background-image: url("rightArrow.png");
 	background-size: 100% 100%;
-	height: 200px;
-	width: 75px;
+	/*grid-area: "rarrow";*/
+/*	height: 200px;
+	width: 75px;*/
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+#stats{
+	/*grid-area: "stats";*/
+	grid-column: 4 / 5;
+	grid-row: 2 / 4;	
+}
+#footer {
+	/*grid-area: "footer";*/
+	grid-column: 1 / 5;
+	grid-row: 4 / 5;
 }
