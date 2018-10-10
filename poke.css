@@ -75,7 +75,7 @@ header {
 	justify-self: center;
 /*	border: 5px solid red;*/
 	border-radius: 50%;
-	background-image: url("Pokeball2.PNG");
+	background-image: url("pokeball2.png");
 	/*grid-area: "pic";*/
 	grid-column: 2 / 3;
 	grid-row: 3 / 4;
