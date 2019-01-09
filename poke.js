@@ -20,9 +20,11 @@ class Pokemon{
 	
 	cleanAbilites(){
 		var cleanedArray = []; //will hold the ability variable without all the extra junk data
+		
 		for(let i=0;i<this.rawAbilities.length;i++){ //loops through the abilities, they can have 2 or 3
 			cleanedArray.push(this.rawAbilities[i].ability.name); //populates array with only the name of the ability
 		}
+		
 		return cleanedArray; //returns only the ability names in an array
 	}
 }
@@ -32,17 +34,22 @@ class Trainer{
 		this.pokes = pokes;     //the array of pokemons created in the window load event listener
 		this.current = 0;
 	}
+
 	all(){
 		return this.pokes;
 	}
+
 	name(nameMatch){
+	
 		for(let i=0;i<this.pokes.length;i++){
 			if(this.pokes[i].name==nameMatch){
 				return this.pokes[i];
 			}
+	
 		}
 		console.log("specified pokemon does not belong to this trainer.")
 	}
+
 	loadPoke(){
 		console.log(this.pokes[this.current].abilities);
 		pokeName.innerHTML = this.pokes[this.current].name;
@@ -54,29 +61,36 @@ class Trainer{
 		$("#defense").html(this.pokes[this.current].defense);
 		this.createAbilities();
 	}
+
 	createAbilities(){
 		$("#abilities").html("");
+	
 		for (let i=0;i<this.pokes[this.current].abilities.length;i++){
 			$("#abilities").append("<li>"+this.pokes[this.current].abilities[i]+"</li>");
 		}
 	}
 
 	nextPoke(){
+	
 		if(this.current==this.pokes.length-1){ //checks to see if its at the last pokemon in the array
 			this.current=0; //if it is, it cycles back to zero
 		}
 		else{
 			this.current++; //otherwise goes to the next one
 		}
+	
 		this.loadPoke();
 	}
+	
 	prevPoke(){
+	
 		if(this.current==0){ //checks to see its at the first pokemon, and cycles to the last member of the array if it is of the previous if it isn't
 			this.current = this.pokes.length-1;
 		}
 		else{
 			this.current--;
 		}
+	
 		this.loadPoke();
 	}
 }
@@ -104,7 +118,7 @@ else{
 }
 
 next.addEventListener("click",function(){  //calls Trainer object's method to find the next pokemon
-nurseSeths.nextPoke();
+	nurseSeths.nextPoke();
 });
 
 

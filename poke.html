@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title>Pokemon Rolodex</title>
-	<link rel="stylesheet" type="text/css" href="poke.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
+	<head>
 
-<body>
-	<div id=body-wrapper>
-		<header>
-			<img id="logo" src="PokemonLogo.png" alt="Pokemon Logo">
-			<h1 id="trainer">Nurses Seth's Gym</h1>
-		</header>
+		<title>Pokemon Rolodex</title>
 
-		<h2 id="pokeName"></h2>
+		<link rel="stylesheet" type="text/css" href="poke.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-		<div id="back"></div>
+	</head>
 
-		<img id="pokePic" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Image of pokemon.">
+	<body>
 
-		<div id="next"></div>
+		<div id=body-wrapper>
 
-		<div id="stats">
-			<h3 id="statsHeading">
-				Poke Stats
-			</h3>
-			<h4 class="statType">Hit Power</h4>
-			<p id="hp">43</p>
-			<h4 class="statType">Atack Power</h4>
-			<P id="attack">55</P>
-			<h4 class="statType">Defense</h4>
-			<P id="defense">23</P>
-			<h4 class="statType">Abilities</h4>
-			<ul id="abilities">
-				<!-- javascript will populate list -->
-			</ul>
+			<header>
+
+				<img id="logo" src="PokemonLogo.png" alt="The Pokemon Logo">
+				<h1 id="trainer">Nurses Seth's Gym</h1>
+
+			</header>
+			<!-- Javascript will populate pokeName -->
+			<h2 id="pokeName"></h2>
+
+			<div id="back"></div>
+			<!-- Image will be changed by javascript according the pokemon which is currently being viewed -->
+			<img id="pokePic" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Image of pokemon.">
+
+			<div id="next"></div>
+
+			<div id="stats">
+				<h3 id="statsHeading">
+					Poke Stats
+				</h3>
+
+				<h4 class="statType">Hit Power</h4>
+				<p id="hp">43</p>
+
+				<h4 class="statType">Atack Power</h4>
+				<P id="attack">55</P>
+
+				<h4 class="statType">Defense</h4>
+				<P id="defense">23</P>
+
+				<h4 class="statType">Abilities</h4>
+				<ul id="abilities">
+					<!-- javascript will populate list -->
+				</ul>
+
+			</div>
+
+			<footer id="footer">
+
+				<p>Thank you for coming to Nurses Seth Kalkstein's gym</p>
+
+			</footer>
+
+			<script type="text/javascript" src="poke.js"></script>
+
 		</div>
 
-		<footer id="footer">
-			<p>Thank you for coming to Nurses Seth Kalkstein's gym</p>
-		</footer>
+	</body>
 
-		<script type="text/javascript" src="poke.js"></script>
-
-	</div>
-
-</body>
 </html>
